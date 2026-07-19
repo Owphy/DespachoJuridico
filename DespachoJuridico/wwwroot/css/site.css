@@ -1,0 +1,600 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: #0D131C; /* Fondo oscuro general */
+    overflow-x: hidden; /* Evita que aparezca una barra de scroll horizontal */
+}
+
+.footer {
+    width: 100%;
+    white-space: nowrap;
+    z-index: 15;
+}
+
+.container {
+    position: relative;
+    display: block;
+    z-index: 15;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem; /* Margen de seguridad móvil */
+}
+
+.container-pie-pagina {
+    position: relative;
+    display: block;
+    z-index: 15;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem 1rem;
+}
+.mi-navbar {
+    padding-left: 20rem;
+    padding-right: 20rem;
+    position: sticky; /* O 'sticky' si quieres que empiece abajo y se pegue al subir */
+    top: auto;
+    left: auto;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center; /* Centra de arriba a abajo (vertical) */
+    /* EL TRUCO CLAVE: */
+    z-index: 20; /* Un número extremadamente alto asegura que esté arriba de todo */
+    /* Opcional: Un fondo sólido o con un ligero desenfoque para que no se mezcle con el texto de abajo */
+    background-color: rgba(13, 19, 28, 0.35); /* El azul abisal de tu paleta profesional */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para dar efecto de flotado */
+}
+
+
+/*--- PRIMERA PARTE ---*/
+
+/* Contenedor Padre */
+
+/* 1. Imagen congelada al fondo */
+.fondo-fijo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* 2. Filtro oscuro congelado */
+.capa-filtro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 0;
+}
+
+/* 3. Contenedor Flexbox (Se mueve con el scroll) */
+.contenedor-alineacion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+}
+
+/* Caja de texto color oro viejo */
+.caja-dorada {
+
+    background-color: #0D4573;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    background-color: rgba(13, 69, 115, 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border-top: 2px solid #FFD92E; /* Línea superior blanca de 2px de grosor */
+    border-bottom: 2px solid #FFD92E; /* Línea inferior blanca de 2px de grosor */
+    font-family: sans-serif;
+    font-weight: bold;
+}
+/* 1. "Bienvenidos" - Letra Grande */
+.titulo-principal {
+    color: #FFFFFF;
+    font-size: 3rem; /* Tamaño grande e imponente */
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin-bottom: 5px; /* Espacio mínimo con la siguiente línea */
+    letter-spacing: 1px;
+}
+
+/* 2. "Abogados con Humanidades" - Tamaño similar */
+.subtitulo-principal {
+    color: #FFFFFF;
+    font-size: 2.6rem; /* Similar a la de arriba, ligeramente más estilizada */
+    font-family: 'Georgia', serif;
+    font-weight: 300; /* Un poco más delgada para dar elegancia */
+    margin-bottom: 25px; /* Separación generosa antes del mensaje final */
+    letter-spacing: 1px;
+}
+
+/* 3. "Trabajamos para tu tranquilidad" - Letra pequeña */
+.texto-tranquilidad {
+    color: #F4EFEB; /* Un color blanco marfil muy suave */
+    font-size: 1.2rem; /* Claramente más pequeña y legible */
+    font-family: sans-serif; /* Tipografía limpia para lectura rápida */
+    text-transform: uppercase; /* Opcional: Mayúsculas para un toque distinguido */
+    letter-spacing: 1px;
+}
+
+/*--- FIN DE LA PRIMERA PARTE ---*/
+
+/*--- SEGUNDA PARTE ---*/
+.pantalla-principal {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa exactamente el 100% de la pantalla del usuario */
+    overflow: hidden;
+    /* Al estar en una capa inferior, las demás secciones pasarán por encima */
+    z-index: 1;
+}
+
+.fondo-fijo {
+    position: fixed; /* 💡 CLAVE: La imagen se queda pegada a la pantalla al hacer scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /* Se adapta perfectamente sin deformarse */
+    z-index: -2; /* Va detrás de todo lo demás en la sección 1 */
+}
+
+.capa-filtro {
+    position: fixed; /* También se queda fija para oscurecer la imagen al bajar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3); /* Ajusta el 0.5 para más o menos oscuridad */
+    z-index: -1;
+}
+
+
+/* El contenedor blanco que sube */
+.NuestraMision {
+    position: relative; /* 💡 CLAVE: Para poder ponerle un z-index y que tape el fondo */
+    z-index: 10; /* Un número mayor para que pase por encima de la sección fija (z-index: 1) */
+    padding: 80px 20px; /* Relleno arriba y abajo para darle aire al texto */
+    background-color: rgba(255, 255, 240, 0); /* Fondo blanco totalmente sólido para tapar lo de atrás */
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.25); /* Sutil sombra arriba para dar efecto de "encima" */
+    border: 3px solid rgba(212, 175, 55, 0.5);
+}
+
+.contenido-blanco {
+    max-width: 500px;
+    margin: 5px auto; /* Centra el texto horizontalmente con márgenes predeterminados */
+    text-align: center;
+}
+
+.contenedor0 {
+    position: relative; /* 💡 CLAVE: Para poder ponerle un z-index y que tape el fondo */
+    z-index: 10; /* Un número mayor para que pase por encima de la sección fija (z-index: 1) */
+    border-radius: 10px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 240); /* Fondo blanco totalmente sólido para tapar lo de atrás */
+    padding: 10px 100px; /* Relleno arriba y abajo para darle aire al texto */
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.15); /* Sutil sombra arriba para dar efecto de "encima" */
+    border-top: 2px solid #FFD92E; /* Línea superior blanca de 2px de grosor */
+    border-bottom: 2px solid #FFD92E; /* Línea inferior blanca de 2px de grosor */
+}
+
+/* La parte de abajo --- */
+/* Asegura que el contenedor padre tenga un ancho máximo y esté centrado */
+
+
+.imagen-fila {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Texto */
+.mision {
+    color: #C99F3C;
+    font-size: 3rem; /* Tamaño grande e imponente */
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin-bottom: 5px; /* Espacio mínimo con la siguiente línea */
+    letter-spacing: 1px;
+}
+
+.misionDescripcion {
+    padding-inline-end: -100rem;
+    padding-inline-start: -100rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: #1A1717;
+
+}
+
+/*Separador*/
+.separador-identidad {
+    text-align: center;
+    position: relative;
+    padding-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+    /* La línea dorada del fondo */
+    .separador-identidad::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 80%;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, transparent, #b8860b, transparent);
+        z-index: 1;
+    }
+
+    /* El texto que tapa la línea al centro */
+    .separador-identidad span {
+        position: relative;
+        z-index: 2;
+        background-color: #FFFFF0;
+        padding: 0 20px;
+        font-size: 2rem;
+        color: #8b6508;
+        font-family: 'Georgia', serif;
+        border-radius: 10px;
+    }
+
+.fila-tarjetas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Permite que en celulares se pongan una abajo de otra */
+}
+
+/* TARJETA IZQUIERDA (VALORES - AZUL OSCURO) */
+.tarjeta-valores {
+    background-color: #0b1625;
+    color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 300px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #1a2a40;
+}
+
+    .tarjeta-valores h3 {
+        color: #d4af37; /* Dorado brillante */
+        font-size: 1.6rem;
+        margin-bottom: 0.2rem;
+    }
+
+
+
+    .tarjeta-valores h5 {
+        color: #d4af37;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .tarjeta-valores ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .tarjeta-valores ul li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            color: #e0e0e0;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+            /* El puntito dorado de la lista */
+            .tarjeta-valores ul li::before {
+                content: "•";
+                color: #d4af37;
+                position: absolute;
+                left: 0;
+                top: -2px;
+                font-size: 1.2rem;
+            }
+
+/*BOTÓN CENTRAL*/
+.contenedor-boton-central {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-contacto-directo {
+    background: linear-gradient(135deg, #7a3a23, #4a1d0f); /* Degradado terracota a oscuro */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border: 1px solid #d4af37;
+    box-shadow: 0 4px 15px rgba(122, 58, 35, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+}
+
+    .btn-contacto-directo:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        color: #ffffff;
+    }
+
+/* TARJETA DERECHA (OBJETIVOS - TERRACOTA) */
+.tarjeta-objetivos {
+    background-color: #8c472b; /* Color terracota arcilla de la imagen */
+    color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 300px;
+    position: relative; /* Necesario para posicionar la lámpara decorativa */
+    border: 1px solid #a85d3f;
+    box-shadow: 0 10px 25px rgba(140, 71, 43, 0.3);
+}
+
+    .tarjeta-objetivos h3 {
+        color: #f7e7c4; /* Blanco hueso / Dorado muy suave */
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .tarjeta-objetivos ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .tarjeta-objetivos ol li {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #fff0e6;
+        }
+
+            .tarjeta-objetivos ol li span {
+                color: #f7e7c4;
+                font-weight: bold;
+                margin-right: 0.5rem;
+            }
+
+                            /* --- Final SECCIÓN 2 ---*/
+
+                            /* --- SERVICIOS LEGALES ---*/
+
+/* Variables de Color (basadas en la imagen) */
+:root {
+    --color-bg-page: RGB(44, 62, 80, 0.2); /* Gris muy claro de fondo de página */
+    --color-bg-card: #2c3e50; /* Blanco de fondo de las tarjetas */
+    --color-text-main: #d4af37; /* Gris oscuro para títulos principales */
+    --color-text-muted: #f9f5e1; /* Gris medio para textos descriptivos */
+    --color-primary: #0056b3; /* Azul del botón (estilo Bootstrap primary) */
+    --color-primary-hover: #004494; /* Azul más oscuro para hover */
+    --color-border-card: #e0e0e0; /* Gris claro para bordes suaves */
+    --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave de la tarjeta */
+}
+
+/* Contenedor principal de la página (para el fondo gris claro y padding global) */
+.serviciosContainer {
+    background-color: var(--color-bg-page);
+    min-height: 100vh;
+    padding: 60px 20px 20px 20px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente limpia similar a la imagen */
+    position: relative;
+}
+/* Contenedor centrado con ancho máximo (reemplaza .container de Bootstrap) */
+.servicios-main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabecera de la página (Título y Subtítulo) */
+.servicios-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.servicios-title {
+    font-size: 2.8rem;
+    color: var(--color-text-main);
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.servicios-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Secciones de Categoría (Familia, Laboral) */
+.servicios-category-section {
+    margin-bottom: 60px;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: var(--color-text-main);
+    font-weight: 600;
+    margin-bottom: 35px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd; /* Línea divisoria suave */
+}
+/* Secciones de Categoría (Familia, Laboral) */
+.servicios-category-section {
+    margin-bottom: 60px;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: var(--color-text-main);
+    font-weight: 600;
+    margin-bottom: 35px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd; /* Línea divisoria suave */
+}
+
+/* Diseño de Cuadrícula (Grid) - Responsivo (Reemplaza .row-cols-...) */
+.servicios-grid {
+    display: grid;
+    /* Por defecto: 1 columna (móvil) */
+    grid-template-columns: 1fr;
+    gap: 30px; /* Espaciado entre tarjetas */
+}
+
+/* Pantallas medianas (Tablets) -> 2 columnas */
+@media (min-width: 768px) {
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Pantallas grandes (Escritorio) -> 3 columnas */
+@media (min-width: 992px) {
+    .servicios-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Estilos de la Tarjeta (Card) Individual */
+.servicio-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-card);
+    border-radius: 8px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column; /* Alinear contenido verticalmente */
+    align-items: center; /* Centrar contenido horizontalmente */
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave para hover */
+}
+
+    /* Efecto Hover de la tarjeta */
+    .servicio-card:hover {
+        transform: translateY(-5px); /* Levantar ligeramente */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    }
+
+/* Contenedor de iconos */
+.servicio-icon-container {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .servicio-icon-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; /* Asegura que la imagen no se deforme */
+    }
+
+/* Títulos dentro de la tarjeta */
+.servicio-card-title {
+    font-size: 1.3rem;
+    color: var(--color-text-main);
+    font-weight: 600;
+    margin-bottom: 15px;
+    min-height: 3.2rem; /* Mantener altura constante si el título es largo (2 líneas) */
+    display: flex;
+    align-items: center;
+}
+
+/* Texto descriptivo dentro de la tarjeta */
+.servicio-card-text {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Importante: Empuja el botón hacia abajo si el texto es corto, manteniendo alineación */
+}
+
+/* Estilo del Botón "CONSULTAR" (reemplaza .btn-outline-primary) */
+.servicio-btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    text-decoration: none; /* Quitar subrayado */
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+    .servicio-btn:hover {
+        background-color: var(--color-primary-hover);
+        color: #ffffff;
+    }
+
+/* --- ESTILOS TEMPORALES PARA LOS ICONOS (DUMMY) ---
+   Borra esta sección cuando añadas las imágenes de iconos reales en el CSHTML */
+.dummy-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    border: 2px dashed #adb5bd;
+}
+
+.dummy-icon-divorcio {
+    background-color: #ffe3e3;
+    border-color: #ff8787;
+}
+
+.dummy-icon-custodia {
+    background-color: #e3fafc;
+    border-color: #66d9e8;
+}
+
+.dummy-icon-pension {
+    background-color: #ebfbee;
+    border-color: #8ce99a;
+}
+
+.dummy-icon-despido {
+    background-color: #fff5f5;
+    border-color: #ffc9c9;
+}
+
+.dummy-icon-contratos {
+    background-color: #fff4e6;
+    border-color: #ffd8a8;
+}
+
+.dummy-icon-pensiones-imss {
+    background-color: #f4f2ff;
+    border-color: #b197fc;
+}

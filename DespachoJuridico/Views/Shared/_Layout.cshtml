@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="h-100" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DespachoJuridico</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DespachoJuridico.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="mi-navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-traslucida">
+        <!-- Cambié container-fluid por container para que herede el margen elegante de tu web -->
+        <div class="container"> 
+            
+            <!-- 1. BLOQUE IZQUIERDO: El logo de tu marca -->
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/Images/Logo.png" alt="Bootstrap" width="60" height="60">
+            </a>
+            
+            <!-- 2. BOTÓN DE CELULAR: Va suelto (sin envolver) para que Bootstrap lo mande a la derecha en móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- 3. BLOQUE DERECHO: El menú colapsable libre de envolturas -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Usamos 'ms-auto' para empujar magnéticamente todos los enlaces a la derecha -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                                <a class="nav-link active text-white" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="NuestraMision">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</div>
+    </header>
+
+
+    <div class="container flex-grow-1">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="container-pie-pagina border-top text-muted">
+
+            &copy; 2026 - DespachoJuridico - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

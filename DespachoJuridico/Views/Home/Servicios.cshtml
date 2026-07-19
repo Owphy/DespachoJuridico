@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Servicio Juridico";
+}
+
+<!-- SECCIÓN 3: Segunda imagen de abajo -->
+
+<div class="serviciosContainer">
+    <div class="servicios-main-content"></div>
+        <!-- CABECERA DE LA PÁGINA -->
+        <header class="servicios-header">
+            <h1 class="servicios-title">@ViewData["Title"]</h1>
+            <p class="servicios-subtitle">
+                Brindamos asesoría legal experta y compasiva en las áreas del Derecho de Familia, Laboral y Civil.
+                Estamos aquí para guiarte en cada paso del proceso.
+            </p>
+        </header>
+        <!-- CATEGORÍA 1: DERECHO DE FAMILIA -->
+        <section class="servicios-category-section">
+            <h2 class="category-title">Derecho de Familia</h2>
+
+            <div class="servicios-grid">
+
+                <!-- Servicio 1: Divorcio Express -->
+                <article class="servicio-card">
+                    <div class="servicio-icon-container">
+                        @* Reemplazar por imagen real: <img src="~/images/icon-divorcio.png" alt="Icono Divorcio" /> *@
+                        <div class="dummy-icon dummy-icon-divorcio"></div> @* Temporal *@
+                    </div>
+                    <h3 class="servicio-card-title">DIVORCIO Y SEPARACIÓN</h3>
+                    <p class="servicio-card-text">
+                        Asesoría integral para divorcios contenciosos y de mutuo acuerdo. Protección de derechos y patrimonio.
+                    </p>
+                    <a href="#" class="servicio-btn">CONSULTAR</a>
+                </article>
+
+                <!-- Servicio 2: Guarda y Custodia -->
+                <article class="servicio-card">
+                    <div class="servicio-icon-container">
+                        @* Reemplazar por imagen real: <img src="~/images/icon-custodia.png" alt="Icono Custodia" /> *@
+                        <div class="dummy-icon dummy-icon-custodia"></div> @* Temporal *@
+                    </div>
+                    <h3 class="servicio-card-title">CUSTODIA Y VISITAS</h3>
+                    <p class="servicio-card-text">
+                        Establecimiento de acuerdos de custodia que priorizan el bienestar de los hijos. Régimen de visitas.
+                    </p>
+                    <a href="#" class="servicio-btn">CONSULTAR</a>
+                </article>
+
+                <!-- Servicio 3: Pensión Alimenticia -->
+                <article class="servicio-card">
+                    <div class="servicio-icon-container">
+                        @* Reemplazar por imagen real: <img src="~/images/icon-pension.png" alt="Icono Pensión" /> *@
+                        <div class="dummy-icon dummy-icon-pension"></div> @* Temporal *@
+                    </div>
+                    <h3 class="servicio-card-title">PENSIÓN ALIMENTICIA</h3>
+                    <p class="servicio-card-text">
+                        Cálculo y solicitud de pensión alimenticia justa y equitativa para garantizar el sustento de los menores.
+                    </p>
+                    <a href="#" class="servicio-btn">CONSULTAR</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CATEGORÍA 2: DERECHO LABORAL Y CIVIL -->
+        <!-- CATEGORÍA 2: DERECHO LABORAL Y CIVIL -->
+        <section class="servicios-category-section">
+            <h2 class="category-title">Derecho Laboral y Civil</h2>
+
+            <div class="servicios-grid">
+
+                <!-- Servicio 4: Despidos -->
+                <article class="servicio-card">
+                    <div class="servicio-icon-container">
+                        @* Reemplazar por imagen real: <img src="~/images/icon-despido.png" alt="Icono Despido" /> *@
+                        <div class="dummy-icon dummy-icon-despido"></div> @* Temporal *@
+                    </div>
+                    <h3 class="servicio-card-title">DESPIDOS INJUSTIFICADOS</h3>
+                    <p class="servicio-card-text">
+                        Defensa de tus derechos laborales ante separaciones del empleo sin causa justificada. Búsqueda de indemnización.
+                    </p>
+                    <a href="#" class="servicio-btn">CONSULTAR</a>
+                </article>
+
+                <!-- Servicio 5: Contratos -->
+                <article class="servicio-card">
+                    <div class="servicio-icon-container">
+                        @* Reemplazar por imagen real: <img src="~/images/icon-contratos.png" alt="Icono Contratos" /> *@
+                        <div class="dummy-icon dummy-icon-contratos"></div> @* Temporal *@
+                    </div>
+                    <h3 class="servicio-card-title">CUMPLIMIENTO DE CONTRATOS</h3>
+                    <p class="servicio-card-text">
+                        Exigencia legal del cumplimiento de obligaciones pactadas en contratos civiles o mercantiles.
+                    </p>
+                    <a href="#" class="servicio-btn">CONSULTAR</a>
+                </article>
+
+                <!-- Servicio 6: Pensiones IMSS -->
+                <article class="servicio-card">
+                    <div class="servicio-icon-container">
+                        @* Reemplazar por imagen real: <img src="~/images/icon-pensiones-imss.png" alt="Icono Pensiones IMSS" /> *@
+                        <div class="dummy-icon dummy-icon-pensiones-imss"></div> @* Temporal *@
+                    </div>
+                    <h3 class="servicio-card-title">PENSIONES Y BENEFICIARIOS</h3>
+                    <p class="servicio-card-text">
+                        Trámites ante instituciones de seguridad social (IMSS/ISSSTE) para pensiones y designación legal de beneficiarios.
+                    </p>
+                    <a href="#" class="servicio-btn">CONSULTAR</a>
+                </article>
+
+            </div>
+        </section>
+
+</div>
+
+<!-- Pequeño CSS para el efecto de sombra al pasar el mouse (Añadir a site.css) -->
+<style>
+    .hover-shadow {
+        transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+        .hover-shadow:hover {
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+            transform: translateY(-3px);
+        }
+</style>
